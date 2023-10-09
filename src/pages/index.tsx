@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { fetchData } from "@/redux/action";
 import { RootState } from "@/redux/rootReducer";
 import dynamic from "next/dynamic";
+import logo from "../../public/Logo.png";
 
 // import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
@@ -49,8 +50,10 @@ export default function Home() {
   return (
     <>
       <header className="w-full h-59 header">
-        <div className="container flex justify-between items-center w-full border border-solid border-gray-400 mx-auto h-full">
-          <div className="logo">logo</div>
+        <div className="container flex justify-between items-center w-full mx-auto h-full">
+          <Link href={"/"} className="logo">
+            <Image src={logo} alt="" className="image" />
+          </Link>
           <ul className="routesList flex">
             {routesList.map((data: string, index: number) => (
               <li key={index}>

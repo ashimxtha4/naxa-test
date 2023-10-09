@@ -10,8 +10,7 @@ import background from "../../public/backgroundImage.svg";
 import KeyHiglights from "@/components/keyHiglights";
 import DataCard from "@/components/dataCards";
 import rightArrow from "../../public/arrow-right-light.svg";
-import PopUp from "@/components/popUp";
-import { popup } from "leaflet";
+import logo from "../../public/Logo.png"
 
 export type dynamicDes = {
   title: string;
@@ -76,7 +75,7 @@ export default function Portfolio() {
     <>
       <header className="w-full h-59 header">
         <div className="container relative flex justify-between items-center w-full mx-auto h-full">
-          <div className="logo">logo</div>
+          <Link href={"/"} className="logo"><Image src={logo} alt="" className="image" /></Link>
           <ul className="routesList flex">
             {routesList.map((data: string, index: number) => (
               <li key={index}>

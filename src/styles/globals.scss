@@ -20,6 +20,7 @@
   box-sizing: border-box;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  border: 0px;
 }
 
 body {
@@ -30,8 +31,16 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+  .leaflet-container {
+    position: absolute !important;
+    top: 0px !important;
+  }
   .header {
     height: 59px;
+    .logo {
+      height: 32px;
+      width: 110px;
+    }
     .routesList {
       li {
         font-size: 0.785rem;
