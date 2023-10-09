@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// @import url("./components/dataCards.scss");
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+  .header {
+    height: 59px;
+    .routesList {
+      li {
+        font-size: 0.785rem;
+        line-height: 1.5;
+        padding: 0.875rem 1.5rem;
+        &:hover {
+          color: #05f;
+        }
+      }
+    }
+    .letsTalk {
+      font-size: 0.725rem;
+      color: #05f;
+      background-color: #ffdc1c;
+      display: flex;
+      width: 140px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.1s ease-in-out;
+      &:hover {
+        background-color: #ffab00;
+        color: #0055ff;
+        gap: 5px;
+
+        img {
+          width: 18px;
+        }
+      }
+      img {
+        height: 18px;
+        width: 0px;
+        transition: all 0.1s ease-in-out;
+      }
+    }
+  }
+  .bannerBackground {
+    height: 500px;
+    background: #f4f4f4;
+    z-index: -1;
+    .imageDiv {
+      opacity: 0.7;
+      width: 737.17px;
+      height: 348.47px;
+    }
+  }
+  .container {
+    padding-inline: 15px;
+    width: calc(1270 * 100% / 1440);
+  }
+  main {
+    .leaflet-container {
+      height: 100vh;
+    }
+    .container {
+      .captionDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: calc(500px - 57px - 48px);
+        width: 100%;
+        .captionContainer {
+          padding-top: 40px;
+          text-align: center;
+          @media only screen and (min-width: 1440px) {
+            padding-top: 60px;
+          }
+          h6 {
+            font-size: 13px;
+            color: #ffab00;
+            font-weight: 600;
+            margin-bottom: 25px;
+            @media only screen and (min-width: 1440px) {
+              font-size: 17px;
+            }
+          }
+          .bannerText {
+            color: #000000;
+            line-height: 1.1;
+            font-size: 40px;
+            font-weight: 400;
+            @media only screen and (min-width: 1440px) {
+              font-size: 56px;
+            }
+            .blue {
+              color: #124af4;
+            }
+          }
+          * {
+            max-width: 800px;
+          }
+        }
+      }
+      .linkWrapper {
+        padding: 10px 30px;
+        background-color: #fff;
+        box-shadow: 0 0 70px rgba(0, 0, 0, 0.160784);
+        .links {
+          font-weight: 600;
+          display: block;
+          padding: 0.4rem;
+          width: 19.5%;
+          font-size: 0.9125rem;
+          color: #989898;
+          transition: 0.5s linear;
+          height: fit-content;
+          @media only screen and (max-width: 1440px) {
+            font-size: 0.75rem;
+          }
+          @media only screen and (max-width: 1024px) {
+            width: 24%;
+          }
+          @media only screen and (max-width: 767px) {
+            width: 33.33%;
+          }
+          @media only screen and (max-width: 576px) {
+            width: 50%;
+          }
+          @media only screen and (max-width: 480px) {
+            width: 100%;
+            text-align: center;
+          }
+          &:hover {
+            div {
+              color: #05f;
+              line-height: 1.5;
+              background-color: #ffdc1c;
+            }
+          }
+          div {
+            padding: 2px;
+            height: 100%;
+            width: 100%;
+            transition: 0.5s linear;
+          }
+        }
+        .active {
+          color: #05f;
+          background-color: #ffdc1c;
+        }
+      }
+      .content {
+        gap: 40px;
+        .description {
+          color: #333132;
+          font-size: 0.785rem;
+          line-height: 1.5;
+          font-weight: 400;
+        }
+        @media only screen and (min-width: 1440px) {
+          margin-top: 100px;
+          .description {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  .backGround {
+    display: none;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .activeBackGround {
+    display: grid;
+    place-items: center;
+    top: 0;
+    left: 0;
+    .crossButton {
+      position: absolute;
+      right: 10vw;
+      top: 6.5vh;
+      z-index: 5000;
+      color: white;
+      border: 1px transparent;
+      cursor: pointer;
+      transition: ease-in-out 0.2s;
+      &:hover {
+        color: #ffab00;
+        border: solid 1px;
+        border-radius: 50%;
+      }
+    }
+    .popUpContainer {
+      z-index: 51;
+      background-color: #fff;
+      height: 80vh;
+      width: 80vw;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 5px;
+        display: block;
+      }
+      &::-webkit-scrollbar-track {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgb(208, 237, 238);
+      }
+
+      .topDiv {
+        display: flex;
+        flex-wrap: wrap;
+        @media screen and (min-width: 1440px) {
+          flex-wrap: nowrap;
+        }
+        .imageDiv {
+          min-height: 250px;
+          @media screen and (min-width: 768px) {
+            max-width: 50%;
+          }
+          @media screen and (min-width: 992px) {
+            max-width: 33.333%;
+          }
+          .image {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .detailsDiv {
+          padding: 1.5rem 1rem 0;
+          color: #333;
+
+          @media screen and (min-width: 1440px) {
+            padding: 2rem 1.5rem 0;
+          }
+          * {
+            width: 100%;
+            line-height: 1.4;
+          }
+          .title {
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            @media screen and (min-width: 1440px) {
+              font-size: 1.5rem;
+            }
+          }
+          .subTitle {
+            font-size: 11px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 1.7;
+            @media screen and (min-width: 1440px) {
+              font-size: 15px;
+            }
+          }
+          .clientDate {
+            margin-top: 16px;
+            font-weight: 600;
+            font-size: 10px;
+            @media screen and (min-width: 1200px) {
+              margin-top: 24px;
+              display: flex;
+              justify-content: space-between;
+            }
+            @media screen and (min-width: 1440px) {
+              font-size: 13px;
+            }
+
+            .client {
+              @media screen and (min-width: 1440px) {
+                max-width: 66.666%;
+              }
+            }
+
+            span {
+              line-height: 1;
+            }
+          }
+          .lastData {
+            font-weight: 600;
+            font-size: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-height: 42px;
+            width: auto;
+            .label {
+              color: #ffab00;
+            }
+          }
+          .focusArea {
+            width: 100%;
+            .focusAreaValue {
+              padding-bottom: 8px;
+              display: flex;
+              gap: 9.8px;
+              .value {
+                padding: 0.125rem 0.75rem;
+                background-color: #d7d7d7d7;
+                line-height: 1.5;
+                border-radius: 22px;
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+      .descDiv {
+        padding: 24px;
+        p {
+          margin-bottom: 15px;
+          font-size: 12.5px;
+          color: #333333;
+        }
+        li {
+          display: flex;
+          padding-left: 40px;
+          position: relative;
+          &::before {
+            padding-left: 4.5px;
+            content: "\2713";
+            display: block;
+            font-size: 12px;
+            height: 18px;
+            width: 18px;
+            position: absolute;
+            left: 0;
+            border-radius: 50%;
+            // content: "\f058";
+            font-family: Material Icons;
+            color: #fff;
+            background-color: #ffab00;
+          }
+        }
+      }
+    }
+  }
+}
